@@ -48,27 +48,27 @@ namespace PatikaWeek14Homework1.Controllers
         }
 
 
-        //[HttpPost("login")]
-        //public IActionResult Login(LoginRequest loginRequest)
-        //{
-        //    if (!ModelState.IsValid)
-        //    {
-        //        return BadRequest(ModelState);
-        //    }
+        [HttpPost("login")]
+        public IActionResult Login(LoginRequest loginRequest)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
 
-        //    var result = _userService.LoginUser(
-        //        new LoginUserDto
-        //        {
-        //            Email = loginRequest.Email,
-        //            Password = loginRequest.Password,
-        //        }
-        //        );
+            var result = _userService.LoginUser(
+               new LoginUserDto
+                {
+                    Email = loginRequest.Email,
+                   Password = loginRequest.Password,
+               }
+               );
 
-        //    if(!result.IsSucceed)
-        //    {
-        //        return BadRequest(result.Message);
+            if(!result.IsSucceed)
+            {
+                return BadRequest(result.Message);
 
-        //    }
+           }
 
         //    var user = result.Data;
 
@@ -95,7 +95,7 @@ namespace PatikaWeek14Homework1.Controllers
         //        Message="Giriş başarı ile gerçekleşti",
         //        Token = token,
         //    });
-        //}
+        }
 
 
 
